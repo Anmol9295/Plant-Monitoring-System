@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Our Product</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Buy Plant Monitoring System Products</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="usage.html">Usage</a>
+            <a href="buy.html">Buy Product</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="product-list">
+            <h2>Available Products</h2>
+            <div id="products">
+                <!-- Products will be loaded here dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Example product data from backend or API.
+        const products = [
+            { name: "Smart Plant Sensor", price: "$50", description: "Monitor soil moisture, temperature, and light levels." },
+            { name: "Plant Monitoring Hub", price: "$120", description: "Central hub for monitoring multiple plants." }
+        ];
+
+        function loadProducts() {
+            const productContainer = document.getElementById('products');
+            productContainer.innerHTML = products.map(product => `
+                <div class="product">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p><strong>Price: ${product.price}</strong></p>
+                    <button>Buy Now</button>
+                </div>
+            `).join('');
+        }
+
+        loadProducts();
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Plant Monitoring System</p>
+    </footer>
+</body>
+</html>

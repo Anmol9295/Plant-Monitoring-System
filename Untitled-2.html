@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use the System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>How to Use the Plant Monitoring System</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="usage.html">Usage</a>
+            <a href="buy.html">Buy Product</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>System Features</h2>
+        <p>Our system monitors the following in real time:</p>
+        <ul>
+            <li>Soil moisture levels</li>
+            <li>Temperature around the plants</li>
+            <li>Light exposure levels</li>
+        </ul>
+
+        <h2>Real-Time Data</h2>
+        <div id="data-container">
+            <p>Loading live data...</p>
+        </div>
+
+        <script>
+            // This script fetches real-time plant data from an API.
+            async function fetchLiveData() {
+                const apiUrl = "https://api.plantsystem.com/live-data"; // Replace with actual API
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                document.getElementById('data-container').innerHTML = `
+                    <p>Soil Moisture: ${data.soilMoisture}%</p>
+                    <p>Temperature: ${data.temperature}°C</p>
+                    <p>Light Level: ${data.lightLevel} lux</p>
+                `;
+            }
+            fetchLiveData();
+        </script>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Plant Monitoring System</p>
+    </footer>
+</body>
+</html>
